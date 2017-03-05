@@ -23,8 +23,11 @@ def setpreference():
         print('enter v for vowels, c for consonents and i for any letter')
         letter3 = input('enter 3rd group of your choice\n')
     prefs = [letter1,letter2,letter3]
-    maxima = int(input('enter the max number of options you want to see\n'))
-    return prefs,maxima
+    maxima = input('enter the max number of options you want to see\n')
+    while(not maxima.isdigit() or int(maxima) <= 0):
+        print('invalid integer')
+        maxima = (input('enter the max number of options you want to see\n'))
+    return prefs,int(maxima)
 
 def generate(pref):
     if pref == 'v':
